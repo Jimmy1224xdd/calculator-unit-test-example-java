@@ -1,10 +1,12 @@
 package ec.edu.epn.calculator;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import junit.framework.Assert;
 
 public class CalculatorTest {
 // Instancia de calculator
@@ -27,13 +29,21 @@ public class CalculatorTest {
         int resultado = calculator.multiply(4,3);
         Assertions.assertEquals(12,resultado);
     }
+    
+     @Test
+    public void testMinus(){
+        Calculator calculator = new Calculator();
+        int result = calculator.minus( 2,1);
+        if(result!= 1){
+            Assert.fail();
+        }
+    }
 //Intento de calculadora con division por cero
     @Test
     public void testDivideByZeroThrowsException() {
     assertThrows(ArithmeticException.class, () -> calculator.divide(10, 0));
     }
 
-    // TEST CON SOLUCUION DEL INGENIERO EN DIVISION
     
 
 }
@@ -45,14 +55,7 @@ public class CalculatorTest {
     //         Assert.fail();
     //     }
     // }
-    // @Test
-    // public void testMinus(){
-    //     Calculator calculator = new Calculator();
-    //     int result = calculator.minus( 2,1);
-    //     if(result!= 1){
-    //         Assert.fail();
-    //     }
-    // }
+   
     // // test para fallido
     // @Test
     // public void testDivide(){
